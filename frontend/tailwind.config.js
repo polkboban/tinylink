@@ -5,7 +5,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}", // This tells Tailwind to scan all JS/JSX/TS/TSX files in 'src'
   ],
   theme: {
-    extend: {},
-  },
+    extend: {
+      transitionProperty: {
+        'spacing': 'margin, padding',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
+    },
+ },
+
   plugins: [],
 }

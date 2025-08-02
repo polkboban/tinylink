@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'hero': '2.75rem', // 44px
+        'tight': '1.125rem', // 18px
+      },
       transitionProperty: {
         'spacing': 'margin, padding',
       },

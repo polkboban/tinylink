@@ -1,3 +1,4 @@
+// ShortenerForm.jsx
 export default function ShortenerForm({
   url,
   setUrl,
@@ -9,68 +10,82 @@ export default function ShortenerForm({
   handleCopy,
 }) {
   return (
-    <div className="flex flex-col items-center justify-center mt-20 px-4">
-      <div className="text-center text-white mb-10 max-w-3xl">
-        <h2 className="text-4xl font-extrabold leading-snug">
+    <section className="px-6 py-16 bg-[#001837]">
+      <div className="max-w-4xl mx-auto text-center text-white">
+        <h2 className="text-5xl font-extrabold leading-tight mb-4">
           Build stronger digital connections
         </h2>
-        <p className="mt-4 text-lg font-medium">
+        <p className="text-lg font-medium mb-10 max-w-2xl mx-auto">
           Use our URL shortener, QR Codes, and landing pages to engage your audience and connect them to the right information.
         </p>
-      </div>
 
-      <form
-        onSubmit={onSubmit}
-        className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-xl text-black"
-      >
-        <h3 className="text-xl font-bold mb-3">Shorten a long link</h3>
-        <p className="text-sm text-gray-600 mb-4">No credit card required.</p>
+        <div className="flex justify-center gap-4 mb-10">
+          <button className="bg-white text-[#001837] font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">
+            🔗 Short link
+          </button>
+          <button className="border border-white text-white px-6 py-3 rounded-xl hover:bg-white hover:text-[#001837] transition">
+            🧾 QR Code
+          </button>
+        </div>
 
-        <input
-          type="url"
-          required
-          placeholder="https://example.com/my-long-url"
-          className="border border-gray-300 rounded px-4 py-2 w-full mb-4 text-sm"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-        />
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded w-full font-semibold"
+        <form
+          onSubmit={onSubmit}
+          className="bg-white p-8 rounded-3xl shadow-xl text-left max-w-3xl mx-auto w-full text-[#001837]"
         >
-          {loading ? 'Shortening...' : 'Get your link for free →'}
-        </button>
+          <h3 className="text-2xl font-bold mb-2">Shorten a long link</h3>
+          <p className="text-sm text-gray-600 mb-4">No credit card required.</p>
 
-        {shortUrl && (
-          <div className="mt-6 text-center">
-            <p className="text-sm font-semibold mb-2">Your TinyLink:</p>
-            <div className="flex items-center justify-between bg-gray-100 p-2 rounded">
-              <a
-                href={shortUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 text-sm truncate"
-              >
-                {shortUrl}
-              </a>
-              <button
-                onClick={handleCopy}
-                className="text-xs text-white bg-blue-500 hover:bg-blue-600 px-3 py-1 rounded ml-2"
-              >
-                {copied ? 'Copied!' : 'Copy'}
-              </button>
+          <label htmlFor="url" className="block font-semibold mb-1 text-sm">
+            Paste your long link here
+          </label>
+          <input
+            id="url"
+            type="url"
+            required
+            placeholder="https://example.com/my-long-url"
+            className="border border-gray-300 rounded-lg px-4 py-2 w-full mb-4 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold transition"
+          >
+            {loading ? 'Shortening...' : 'Get your link for free →'}
+          </button>
+
+          {shortUrl && (
+            <div className="mt-6">
+              <p className="text-sm font-semibold mb-2">Your TinyLink:</p>
+              <div className="flex items-center justify-between bg-gray-100 p-3 rounded-lg">
+                <a
+                  href={shortUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 text-sm truncate max-w-[70%]"
+                >
+                  {shortUrl}
+                </a>
+                <button
+                  onClick={handleCopy}
+                  type="button"
+                  className="text-xs bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
+                >
+                  {copied ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {error && (
-          <div className="text-red-600 text-sm mt-4">
-            <strong>Error:</strong> {error}
-          </div>
-        )}
-      </form>
-    </div>
+          {error && (
+            <div className="text-red-600 text-sm mt-4">
+              <strong>Error:</strong> {error}
+            </div>
+          )}
+        </form>
+      </div>
+    </section>
   );
 }

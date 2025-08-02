@@ -1,4 +1,4 @@
-// ShortenerForm.jsx
+
 export default function ShortenerForm({
   url,
   setUrl,
@@ -10,7 +10,12 @@ export default function ShortenerForm({
   handleCopy,
 }) {
   return (
-    <section className="px-6 py-16 bg-[#001837]">
+    <section className="relative px-7 py-16 bg-[#001837] overflow-hidden w-full">
+      <img
+        src="/stars.svg"
+        alt="Background stars"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[110%] max-w-none pointer-events-none select-none"
+      />
       <div className="max-w-4xl mx-auto text-center text-white">
         <h2 className="text-5xl font-extrabold leading-tight mb-4">
           Build stronger digital connections
@@ -20,11 +25,18 @@ export default function ShortenerForm({
         </p>
 
         <div className="flex justify-center gap-4 mb-10">
-          <button className="bg-white text-[#001837] font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">
-            🔗 Short link
+          <button className="bg-white text-[#001837] font-semibold px-6 py-2 rounded-xl shadow hover:bg-gray-100 transition flex items-center gap-1/2">
+            <img
+              src="/link.svg"
+              className={`h-8 md:h-11 mr-1`}
+            />Short link
           </button>
-          <button className="border border-white text-white px-6 py-3 rounded-xl hover:bg-white hover:text-[#001837] transition">
-            🧾 QR Code
+          <button className="border border-white text-white px-6 py-2 rounded-xl hover:bg-white hover:text-[#001837] transition flex items-center gap-1">
+            <img
+              src="/qr.svg"
+              className={`h-8 md:h-11`}
+            />
+            QR Code
           </button>
         </div>
 

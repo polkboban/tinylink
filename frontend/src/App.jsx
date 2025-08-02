@@ -49,7 +49,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#001837] text-white font-sans overflow-x-hidden">
       <Header />
-      <main className='pt-24'>
+      <main className='pt-20'>
         <ShortenerForm
           url={url}
           setUrl={setUrl}

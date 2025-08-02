@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,27 +17,26 @@ export default function Header() {
         scrolled ? 'bg-white shadow text-[#001837]' : 'bg-[#001837] text-white'
       }`}
     >
-      <div className="max-w-[1280px] mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-[1080px] mx-auto px-6 py-4 flex justify-between items-center">
         <img
           src="/BitlyLogo.svg"
           alt="Bitly logo"
-          className={`h-7 md:h-11 ${scrolled ? '' : 'brightness-200'}`}
+          className={`h-7 md:h-11 ${scrolled ? '' : 'brightness-100'}`}
         />
 
+        <nav className="hidden lg:flex items-center gap-7 text-[18px] font-medium">
+          <a href="#" className="hover:underline font-semibold">Platform <ChevronDown className="inline " /></a>
+          <a href="#" className="hover:underline font-semibold">Solutions <ChevronDown className="inline" /></a>
+          <a href="#" className="hover:underline font-semibold">Pricing <ChevronDown className="inline" /></a>
+          <a href="#" className="hover:underline font-semibold">Resources <ChevronDown className="inline" /></a>
 
-        <nav className="hidden lg:flex items-center gap-6 text-[15px] font-medium">
-          <a href="#" className="hover:underline">Platform</a>
-          <a href="#" className="hover:underline">Solutions</a>
-          <a href="#" className="hover:underline">Pricing</a>
-          <a href="#" className="hover:underline">Resources</a>
-
-          <button className={`px-4 py-1 border rounded ${
+          <button className={`px-4 py-1 border-2 rounded-full ml-7 ${
             scrolled ? 'border-[#001837] text-[#001837]' : 'border-white text-white'
           }`}>
             Log in
           </button>
 
-          <button className={`ml-2 px-4 py-1 font-semibold rounded ${
+          <button className={`ml-0 px-4 py-1 font-semibold rounded-full ${
             scrolled
               ? 'bg-blue-600 text-white hover:bg-blue-700'
               : 'bg-white text-[#001837] hover:bg-gray-100'

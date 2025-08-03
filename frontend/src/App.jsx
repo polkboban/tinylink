@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ShortenerForm from './components/ShortenerForm';
+import BitlyConnectionsSection from './components/Connections';
 
 function App() {
   const [url, setUrl] = useState('');
@@ -47,23 +48,33 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#001837] text-white font-sans overflow-x-hidden">
-      <Header />
-      <main className='pt-20'>
-        <ShortenerForm
-          url={url}
-          setUrl={setUrl}
-          onSubmit={handleSubmit}
-          loading={loading}
-          shortUrl={shortUrl}
-          error={error}
-          copied={copied}
-          handleCopy={handleCopy}
-        />
-      </main>
-      <Footer />
+  <div className="font-sans text-white">
+    <Header />
+
+    {/* Hero section */}
+    <section className="bg-[#001837] pt-20">
+      <ShortenerForm
+        url={url}
+        setUrl={setUrl}
+        onSubmit={handleSubmit}
+        loading={loading}
+        shortUrl={shortUrl}
+        error={error}
+        copied={copied}
+        handleCopy={handleCopy}
+      />
+    </section>
+    <Footer />
+
+    {/* Full-width light background section */}
+    <div className="w-full bg-[#faf9f7] text-[#001837]">
+      <BitlyConnectionsSection />
     </div>
-  );
+
+    
+  </div>
+);
+
 }
 
 export default App;

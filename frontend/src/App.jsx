@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ShortenerForm from './components/ShortenerForm';
+import ShortenerAndQR from './components/ShortenerAndQR';
 import BitlyConnectionsSection from './components/Connections';
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
 
     {/* Hero section */}
     <section className="bg-[#001837] pt-20">
-      <ShortenerForm
+      <ShortenerAndQR
         url={url}
         setUrl={setUrl}
         onSubmit={handleSubmit}

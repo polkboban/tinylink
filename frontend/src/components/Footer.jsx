@@ -1,4 +1,5 @@
-// src/components/Footer.jsx
+
+
 export default function Footer() {
   return (
     <footer className="bg-[#001837] text-white text-center py-10 mt-[-50px] text-sm relative z-10">
@@ -6,9 +7,9 @@ export default function Footer() {
         Sign up for free. Your free plan includes:
       </p>
       <p>
-        <span className="text-green-400">✓</span> 5 short links/month &nbsp;•&nbsp;
-        <span className="text-green-400">✓</span> 3 custom back-halves/month &nbsp;•&nbsp;
-        <span className="text-green-400">✓</span> Unlimited link clicks
+        <img src="/tick.svg" alt="Checkmark" className="inline-block mr-1" /> 5 short links/month &nbsp;&nbsp;
+        <img src="/tick.svg" alt="Checkmark" className="inline-block mr-1" /> 3 custom back-halves/month &nbsp;&nbsp;
+        <img src="/tick.svg" alt="Checkmark" className="inline-block mr-1" /> Unlimited link clicks
       </p>
     </footer>
   );

@@ -1,11 +1,9 @@
 import { nanoid, customAlphabet } from 'nanoid';
 
-// Base62 alphabet (0-9, a-z, A-Z)
 const alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const generateId = customAlphabet(alphabet, 6);
 
 /**
- * Generate a unique short code
  * @param {number} length - Length of the short code (default: 6)
  * @returns {string} - Generated short code
  */
@@ -18,7 +16,6 @@ export function generateShortCode(length = 6) {
 }
 
 /**
- * Validate if a string can be used as a short code
  * @param {string} code - The code to validate
  * @returns {boolean} - Whether the code is valid
  */
@@ -26,7 +23,6 @@ export function isValidShortCode(code) {
   if (!code || typeof code !== 'string') return false;
   if (code.length < 3 || code.length > 20) return false;
   
-  // Only allow alphanumeric characters and hyphens
   const validPattern = /^[a-zA-Z0-9-]+$/;
   return validPattern.test(code);
 }

@@ -22,7 +22,7 @@ export function validateUrl(url) {
   
   // Only block dangerous file extensions
   const maliciousPatterns = [
-    /\.(exe|bat|cmd|scr|pif|com)$/i
+    /\.(exe|bat|cmd|scr|pif)$/i
   ];
 
   for (const pattern of maliciousPatterns) {

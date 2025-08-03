@@ -1,6 +1,8 @@
+import { ArrowRight } from 'lucide-react';
+
 export default function BitlyConnectionsSection() {
   return (
-    <div className="w-full bg-[#faf9f7] py-20 px-6">
+    <div className="w-full bg-[#f6f5ee] py-20 px-6">
   <div className="max-w-7xl mx-auto px-4 text-center text-[#001837]">
     <p className="uppercase text-sm font-semibold text-gray-500 tracking-wide mb-2">
       Great connections start with a click or scan
@@ -13,11 +15,11 @@ export default function BitlyConnectionsSection() {
     </p>
 
     <div className="flex justify-center gap-4 mb-16 flex-wrap">
-      <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition">
-        Get started for free →
+      <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-[1.2rem] transition">
+        Get started for free {<ArrowRight className="inline" />}
       </button>
-      <button className="border border-[#001837] text-[#001837] font-semibold px-6 py-3 rounded-lg transition hover:bg-gray-100">
-        Get a quote →
+      <button className="border border-[#001837] text-[#001837] font-semibold px-6 py-3 rounded-[1.2rem] transition hover:bg-gray-100">
+        Get a quote {<ArrowRight className="inline" />}
       </button>
     </div>
 
@@ -26,8 +28,8 @@ export default function BitlyConnectionsSection() {
       <div className="bg-[#eeeae3] rounded-[4rem] shadow border border-gray-200 p-6 flex flex-col items-center text-center border-black
                       transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-blue-500 delay-100">
         <img src="/short-link-card.png" alt="URL Shortener" className="w-full max-w-xs mb-6" />
-        <h3 className="text-xl font-bold flex items-center gap-2 text-[#001837]">
-          <img src="/link.svg" className="h-5" alt="" />
+        <h3 className="text-[1.6rem] font-bold flex items-center gap-2 text-[#001837]">
+          <img src="/link.svg" className="h-8" alt="" />
           URL Shortener
         </h3>
         <p className="text-sm text-gray-600 mt-2">
@@ -39,8 +41,8 @@ export default function BitlyConnectionsSection() {
       <div className="bg-[#eeeae3] rounded-[4rem] shadow border border-gray-200 p-6 flex flex-col items-center text-center border-black
                       transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-blue-500 delay-200">
         <img src="/qr-code-card.png" alt="QR Codes" className="w-full max-w-xs mb-6" />
-        <h3 className="text-xl font-bold flex items-center gap-2 text-[#001837]">
-          <img src="/qr.svg" className="h-5" alt="" />
+        <h3 className="text-[1.6rem] font-bold flex items-center gap-2 text-[#001837]">
+          <img src="/qr.svg" className="h-8" alt="" />
           QR Codes
         </h3>
         <p className="text-sm text-gray-600 mt-2">

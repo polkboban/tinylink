@@ -11,35 +11,7 @@ export default function ShortenerForm({
   handleCopy,
 }) {
   return (
-    <section className="relative px-7 py-16 bg-[#001837] overflow-hidden w-full">
-      <img
-        src="/stars.svg"
-        alt="Background stars"
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[100%] max-w-none pointer-events-none select-none"
-      />
-      <div className="max-w-4xl mx-auto text-center text-white">
-        <h2 className="text-5xl font-extrabold leading-tight mb-4">
-          Build stronger digital connections
-        </h2>
-        <p className="text-lg font-medium mb-10 max-w-2xl mx-auto">
-          Use our URL shortener, QR Codes, and landing pages to engage your audience and connect them to the right information.
-        </p>
-
-        <div className="flex justify-center gap-4 mb-10">
-          <button className="bg-white text-[#001837] font-semibold px-6 py-2 shadow hover:bg-gray-100 transition flex items-center gap-1/2 rounded-[1.6rem]">
-            <img
-              src="/link.svg"
-              className={`h-8 md:h-11 mr-1`}
-            />Short link
-          </button>
-          <button className="border border-none text-white px-6 py-2 rounded-[1.6rem] hover:bg-[#000b1a] transition flex items-center gap-1">
-            <img
-              src="/qr.svg"
-              className={`h-8 md:h-11`}
-            />
-            QR Code
-          </button>
-        </div>
+    
 
         <form
           onSubmit={onSubmit}
@@ -98,7 +70,5 @@ export default function ShortenerForm({
             </div>
           )}
         </form>
-      </div>
-    </section>
-  );
+  ); 
 }

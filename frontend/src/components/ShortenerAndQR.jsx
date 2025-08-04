@@ -17,7 +17,7 @@ export default function ShortenerAndQR() {
     setCopied(false);
 
     try {
-      const res = await fetch("http://localhost:3000/api/shorten", {
+      const res = await fetch("https://tny1ink.onrender.com/api/shorten", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),

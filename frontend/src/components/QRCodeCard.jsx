@@ -5,6 +5,12 @@ import { ArrowRight } from "lucide-react";
 export default function QRCodeCard({ url, setUrl }) {
   const [showQR, setShowQR] = useState(false);
 
+  // Customization states
+  const [size, setSize] = useState(180);
+  const [fgColor, setFgColor] = useState("#001837");
+  const [bgColor, setBgColor] = useState("#ffffff");
+  const [level, setLevel] = useState("H");
+
   const handleDownloadQR = () => {
     const canvas = document.getElementById("qr-code");
     const pngUrl = canvas
@@ -45,6 +51,52 @@ export default function QRCodeCard({ url, setUrl }) {
         }}
       />
 
+      {/* Customization options */}
+      <div className="grid grid-cols-2 gap-4 text-sm mb-6">
+        <div>
+          <label className="block font-medium mb-1">Size (px)</label>
+          <input
+            type="number"
+            min="100"
+            max="1000"
+            value={size}
+            onChange={(e) => setSize(Number(e.target.value))}
+            className="border border-gray-300 rounded px-3 py-1 w-full"
+          />
+        </div>
+        <div>
+          <label className="block font-medium mb-1">Error Correction Level</label>
+          <select
+            value={level}
+            onChange={(e) => setLevel(e.target.value)}
+            className="border border-gray-300 rounded px-3 py-1 w-full"
+          >
+            <option value="L">L (Low)</option>
+            <option value="M">M (Medium)</option>
+            <option value="Q">Q (Quartile)</option>
+            <option value="H">H (High)</option>
+          </select>
+        </div>
+        <div>
+          <label className="block font-medium mb-1">Foreground Color</label>
+          <input
+            type="color"
+            value={fgColor}
+            onChange={(e) => setFgColor(e.target.value)}
+            className="w-full h-10 p-1 border border-gray-300 rounded"
+          />
+        </div>
+        <div>
+          <label className="block font-medium mb-1">Background Color</label>
+          <input
+            type="color"
+            value={bgColor}
+            onChange={(e) => setBgColor(e.target.value)}
+            className="w-full h-10 p-1 border border-gray-300 rounded"
+          />
+        </div>
+      </div>
+
       <button
         type="submit"
         className="w-[18rem] bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-[1.3rem] font-bold transition"
@@ -57,10 +109,10 @@ export default function QRCodeCard({ url, setUrl }) {
           <QRCodeCanvas
             id="qr-code"
             value={url}
-            size={180}
-            bgColor="#ffffff"
-            fgColor="#001837"
-            level="H"
+            size={size}
+            bgColor={bgColor}
+            fgColor={fgColor}
+            level={level}
             includeMargin
           />
           <button

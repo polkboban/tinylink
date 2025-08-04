@@ -2,7 +2,7 @@
 
 A production-ready URL shortener service similar to Bit.ly, built with Node.js, Express, and Supabase.
 
-## 🚀 Features
+## Features
 
 - **URL Shortening**: Convert long URLs into short, memorable links
 - **Custom Aliases**: Allow users to create custom short codes
@@ -12,7 +12,7 @@ A production-ready URL shortener service similar to Bit.ly, built with Node.js, 
 - **Security**: URL validation and malicious content detection
 - **Analytics**: Detailed statistics for each shortened URL
 
-## 📊 API Endpoints
+##  API Endpoints
 
 ### Create Short URL
 ```http
@@ -70,12 +70,7 @@ GET /api/stats/{shortCode}
 }
 ```
 
-### Health Check
-```http
-GET /health
-```
-
-## 🛠️ Setup
+##  Setup
 
 1. **Install Dependencies**
    ```bash
@@ -98,7 +93,7 @@ GET /health
    npm start
    ```
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -114,7 +109,7 @@ GET /health
 - `"7d"` - 7 days
 - `86400000` - Milliseconds (24 hours)
 
-## 🔒 Security Features
+##  Security Features
 
 - **Rate Limiting**: 50 URL creations per 15 minutes, 100 redirects per minute
 - **URL Validation**: Prevents malicious URLs and ensures proper formatting
@@ -122,14 +117,14 @@ GET /health
 - **Expiration**: Automatic cleanup of expired links
 - **CORS & Helmet**: Security headers and cross-origin protection
 
-## 📈 Performance
+##  Performance
 
 - **Database Indexing**: Optimized queries with proper indexes
 - **Async Operations**: Non-blocking click count updates
 - **Efficient Short Codes**: Base62 encoding for compact URLs
 - **Caching Ready**: Designed for Redis integration
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 src/
@@ -140,7 +135,7 @@ src/
 └── utils/          # Helper functions
 ```
 
-## 🔄 Database Schema
+##  Database Schema
 
 The `urls` table stores:
 - `short_code`: Unique identifier (indexed)
@@ -150,7 +145,7 @@ The `urls` table stores:
 - `custom_alias`: Whether user-provided
 - `is_active`: Soft deletion flag
 
-## 📝 Example Usage
+##  Example Usage
 
 ```bash
 # Create a short URL
@@ -164,10 +159,3 @@ curl -L http://localhost:3000/abc123
 # Get statistics
 curl http://localhost:3000/api/stats/abc123
 ```
-
-## 📊 Monitoring
-
-- Health check endpoint: `/health`
-- Built-in error logging
-- Request/response tracking
-- Click analytics

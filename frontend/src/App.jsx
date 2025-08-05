@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ShortenerAndQR from './components/ShortenerAndQR';
 import BitlyConnectionsSection from './components/Connections';
+import CustomizePage from './pages/CustomizePage'; // ✅ Import the new page
 
 function App() {
   const [url, setUrl] = useState('');
@@ -48,33 +50,52 @@ function App() {
   };
 
   return (
-  <div className="font-sans text-white">
-    <Header />
+    <div className="font-sans text-white">
+      <Header />
 
-    {/* Hero section */}
-    <section className="bg-[#001837] pt-20">
-      <ShortenerAndQR
-        url={url}
-        setUrl={setUrl}
-        onSubmit={handleSubmit}
-        loading={loading}
-        shortUrl={shortUrl}
-        error={error}
-        copied={copied}
-        handleCopy={handleCopy}
-      />
-    </section>
-    <Footer />
+      <Routes>
+        {/* Home Route (Default) */}
+        <Route
+          path="/"
+          element={
+            <>
+              <section className="bg-[#001837] pt-20">
+                <ShortenerAndQR
+                  url={url}
+                  setUrl={setUrl}
+                  onSubmit={handleSubmit}
+                  loading={loading}
+                  shortUrl={shortUrl}
+                  error={error}
+                  copied={copied}
+                  handleCopy={handleCopy}
+                />
+              </section>
 
-    {/* Full-width light background section */}
-    <div className="w-full bg-[#faf9f7] text-[#001837]">
-      <BitlyConnectionsSection />
+              <div className="w-full bg-[#faf9f7] text-[#001837]">
+                <BitlyConnectionsSection />
+              </div>
+
+              <Footer />
+            </>
+          }
+        />
+
+        {/* Customize Page Route */}
+        <Route
+          path="/customize"
+          element={
+            <>
+              <section className="bg-gray-50 pt-20 min-h-screen text-[#001837]">
+                <CustomizePage url={url || "https://example.com"} />
+              </section>
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
     </div>
-
-    
-  </div>
-);
-
+  );
 }
 
 export default App;

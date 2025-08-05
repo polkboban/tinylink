@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function QRCodeCard({ url, setUrl }) {
   const [showQR, setShowQR] = useState(false);
 
-  // Customization states
   const [size, setSize] = useState(180);
   const [fgColor, setFgColor] = useState("#001837");
   const [bgColor, setBgColor] = useState("#ffffff");
   const [level, setLevel] = useState("H");
+
+  const navigate = useNavigate();
 
   const handleDownloadQR = () => {
     const canvas = document.getElementById("qr-code");
@@ -51,7 +53,6 @@ export default function QRCodeCard({ url, setUrl }) {
         }}
       />
 
-      {/* Customization options */}
       <div className="grid grid-cols-2 gap-4 text-sm mb-6">
         <div>
           <label className="block font-medium mb-1">Size (px)</label>
@@ -102,6 +103,14 @@ export default function QRCodeCard({ url, setUrl }) {
         className="w-[18rem] bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-[1.3rem] font-bold transition"
       >
         Get your QR Code for free <ArrowRight className="inline" />
+      </button>
+
+      <button
+        type="button"
+        onClick={() => navigate("/customize")}
+        className="ml-4 mt-2 w-[18rem] border border-blue-600 text-blue-600 py-3 rounded-[1.3rem] font-bold hover:bg-blue-50 transition"
+      >
+        Customize your QR Code
       </button>
 
       {showQR && (

@@ -17,7 +17,7 @@ export default function Header() {
         scrolled ? 'bg-white shadow text-[#001837]' : 'bg-[#001837] text-white'
       }`}
     >
-      <div className="max-w-[1080px] mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-[1080px] mx-auto px-6 py-[1rem] flex justify-between items-center">
         <img
           src="/BitlyLogo.svg"
           alt="Bitly logo"
@@ -30,13 +30,13 @@ export default function Header() {
           <a href="#" className="hover:underline font-semibold">Pricing <ChevronDown className="inline" /></a>
           <a href="#" className="hover:underline font-semibold">Resources <ChevronDown className="inline" /></a>
 
-          <button className={`px-4 py-1 border-2 rounded-full ml-7 ${
+          <button className={`px-4 py-1 border-2 rounded-[0.9rem] ml-7 ${
             scrolled ? 'border-[#001837] text-[#001837]' : 'border-white text-white'
           }`}>
             Log in
           </button>
 
-          <button className={`ml-0 px-4 py-1 font-semibold rounded-full ${
+          <button className={`ml-0 px-4 py-[0.31rem] font-semibold rounded-[0.9rem] ${
             scrolled
               ? 'bg-blue-600 text-white hover:bg-blue-700'
               : 'bg-white text-[#001837] hover:bg-gray-100'

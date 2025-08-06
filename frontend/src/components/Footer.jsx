@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-[#001837] text-white text-center py-10 mt-[-50px] text-sm relative z-10">
+    <footer className="bg-[#001837] text-white text-center py-10 mt-[10px] text-sm relative z-10">
       <p className="mb-2 font-semibold">
         Sign up for free. Your free plan includes:
       </p>

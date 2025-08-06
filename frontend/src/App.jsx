@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ShortenerAndQR from './components/ShortenerAndQR';
 import BitlyConnectionsSection from './components/Connections';
-import CustomizePage from './pages/CustomizePage'; // ✅ Import the new page
+import CustomizePage from './pages/CustomizePage'; 
 
 function App() {
   const [url, setUrl] = useState('');
@@ -54,7 +54,6 @@ function App() {
       <Header />
 
       <Routes>
-        {/* Home Route (Default) */}
         <Route
           path="/"
           element={
@@ -81,15 +80,14 @@ function App() {
           }
         />
 
-        {/* Customize Page Route */}
         <Route
           path="/customize"
           element={
             <>
               <section className="bg-gray-50 pt-20 min-h-screen text-[#001837]">
-                <CustomizePage url={url || "https://example.com"} />
+                <CustomizePage />
               </section>
-              <Footer />
+              
             </>
           }
         />

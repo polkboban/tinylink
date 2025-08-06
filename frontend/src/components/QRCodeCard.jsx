@@ -1,138 +1,118 @@
-import { useState } from "react";
-import { QRCodeCanvas } from "qrcode.react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import QRCodeStyling from "qr-code-styling";
 import { useNavigate } from "react-router-dom";
 
-export default function QRCodeCard({ url, setUrl }) {
-  const [showQR, setShowQR] = useState(false);
+const QR_CARD_IMAGE = "/qr-card-main.png";
 
-  const [size, setSize] = useState(180);
+export default function QRCodeCard() {
+  const [url, setUrl] = useState("");
+  const [showQR, setShowQR] = useState(false);
   const [fgColor, setFgColor] = useState("#001837");
   const [bgColor, setBgColor] = useState("#ffffff");
+  const [size, setSize] = useState(180);
   const [level, setLevel] = useState("H");
+
+  const qrRef = useRef(null);
+  const qrCode = useRef(new QRCodeStyling({
+    width: size,
+    height: size,
+    data: url,
+    dotsOptions: { color: fgColor, type: "square" },
+    backgroundOptions: { color: bgColor },
+    qrOptions: { errorCorrectionLevel: level }
+  }));
 
   const navigate = useNavigate();
 
-  const handleDownloadQR = () => {
-    const canvas = document.getElementById("qr-code");
-    const pngUrl = canvas
-      .toDataURL("image/png")
-      .replace("image/png", "image/octet-stream");
-    const link = document.createElement("a");
-    link.href = pngUrl;
-    link.download = "qr-code.png";
-    link.click();
-  };
+  useEffect(() => {
+    if (showQR && qrRef.current) {
+      qrCode.current.update({
+        data: url,
+        width: size,
+        height: size,
+        dotsOptions: { color: fgColor },
+        backgroundOptions: { color: bgColor },
+        qrOptions: { errorCorrectionLevel: level },
+      });
+
+      qrRef.current.innerHTML = "";
+      qrCode.current.append(qrRef.current);
+    }
+  }, [showQR, url, fgColor, bgColor, size, level]);
 
   const handleGenerate = (e) => {
     e.preventDefault();
-    if (url.trim()) setShowQR(true);
+    if (url.trim()) {
+      setShowQR(true);
+    }
+  };
+
+  const handleDownloadQR = () => {
+    qrCode.current.download({ name: "qr-code", extension: "png" });
   };
 
   return (
-    <form
-      onSubmit={handleGenerate}
-      className="bg-white p-8 rounded-[3rem] shadow-xl text-left max-w-4xl mx-auto w-full text-[#001837]"
-    >
-      <h3 className="text-2xl font-bold mb-2">Create a QR Code</h3>
-      <p className="text-sm text-gray-600 mb-4">No credit card required.</p>
+    
+      <div className="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl max-w-5xl w-full flex flex-col md:flex-row gap-10 text-[#001837] relative">
+        <div className="md:w-1/2">
+          <h3 className="text-3xl font-extrabold mb-2">Create a QR Code</h3>
+          <p className="text-sm text-gray-500 mb-4">No credit card required.</p>
 
-      <label htmlFor="qr-url" className="block font-semibold mb-2 mt-9 text-[1.125rem]">
-        Enter your QR Code destination
-      </label>
-      <input
-        id="qr-url"
-        type="url"
-        required
-        placeholder="https://example.com/my/long-url"
-        className="border border-gray-300 mb-7 rounded-lg px-4 py-2 w-full mb-4 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-        value={url}
-        onChange={(e) => {
-          setShowQR(false);
-          setUrl(e.target.value);
-        }}
-      />
+          <label htmlFor="qr-url" className="block font-bold mb-2 mt-9 text-lg">
+            Enter your QR Code destination
+          </label>
+          <input
+            id="qr-url"
+            type="url"
+            required
+            placeholder="https://example.com/my/long-url"
+            className="border border-gray-300 rounded-2xl px-4 py-3 w-full mb-7 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            value={url}
+            onChange={(e) => {
+              setShowQR(false);
+              setUrl(e.target.value);
+            }}
+          />
 
-      <div className="grid grid-cols-2 gap-4 text-sm mb-6">
-        <div>
-          <label className="block font-medium mb-1">Size (px)</label>
-          <input
-            type="number"
-            min="100"
-            max="1000"
-            value={size}
-            onChange={(e) => setSize(Number(e.target.value))}
-            className="border border-gray-300 rounded px-3 py-1 w-full"
-          />
+          <form onSubmit={handleGenerate}>
+            <button
+              type="submit"
+              className="w-full md:w-[18rem] bg-[#001837] hover:bg-[#20293a] text-white py-3 rounded-[1.3rem] font-bold transition flex items-center justify-center gap-2"
+            >
+              Get your QR Code for free <ArrowRight />
+            </button>
+          </form>
         </div>
-        <div>
-          <label className="block font-medium mb-1">Error Correction Level</label>
-          <select
-            value={level}
-            onChange={(e) => setLevel(e.target.value)}
-            className="border border-gray-300 rounded px-3 py-1 w-full"
-          >
-            <option value="L">L (Low)</option>
-            <option value="M">M (Medium)</option>
-            <option value="Q">Q (Quartile)</option>
-            <option value="H">H (High)</option>
-          </select>
-        </div>
-        <div>
-          <label className="block font-medium mb-1">Foreground Color</label>
-          <input
-            type="color"
-            value={fgColor}
-            onChange={(e) => setFgColor(e.target.value)}
-            className="w-full h-10 p-1 border border-gray-300 rounded"
-          />
-        </div>
-        <div>
-          <label className="block font-medium mb-1">Background Color</label>
-          <input
-            type="color"
-            value={bgColor}
-            onChange={(e) => setBgColor(e.target.value)}
-            className="w-full h-10 p-1 border border-gray-300 rounded"
-          />
+
+        <div className="md:w-1/2 flex items-center justify-center relative min-h-[300px]">
+          {showQR ? (
+            <div className="flex flex-col items-center gap-6">
+              <div ref={qrRef} className="p-2 border rounded-3xl shadow-lg border-gray-200"></div>
+              <button
+                type="button"
+                onClick={() => navigate("/customize", { state: { url } })}
+                className="w-full md:w-[18rem] bg-blue-600 text-white py-3 rounded-[1.3rem] font-bold hover:bg-blue-700 transition"
+              >
+                Customize your QR Code
+              </button>
+              <button
+                onClick={handleDownloadQR}
+                type="button"
+                className="text-sm text-blue-600 hover:underline"
+              >
+                Download QR Code
+              </button>
+            </div>
+          ) : (
+            <img 
+              src={QR_CARD_IMAGE} 
+              alt="QR Code Placeholder" 
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-full h-auto"
+            />
+          )}
         </div>
       </div>
-
-      <button
-        type="submit"
-        className="w-[18rem] bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-[1.3rem] font-bold transition"
-      >
-        Get your QR Code for free <ArrowRight className="inline" />
-      </button>
-
-      <button
-        type="button"
-        onClick={() => navigate("/customize")}
-        className="ml-4 mt-2 w-[18rem] border border-blue-600 text-blue-600 py-3 rounded-[1.3rem] font-bold hover:bg-blue-50 transition"
-      >
-        Customize your QR Code
-      </button>
-
-      {showQR && (
-        <div className="mt-6 flex flex-col items-left gap-2">
-          <QRCodeCanvas
-            id="qr-code"
-            value={url}
-            size={size}
-            bgColor={bgColor}
-            fgColor={fgColor}
-            level={level}
-            includeMargin
-          />
-          <button
-            onClick={handleDownloadQR}
-            type="button"
-            className="text-sm text-blue-600 hover:underline"
-          >
-            Download QR Code
-          </button>
-        </div>
-      )}
-    </form>
+    
   );
 }

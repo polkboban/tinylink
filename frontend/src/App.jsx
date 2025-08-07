@@ -84,7 +84,7 @@ function App() {
           path="/customize"
           element={
             <>
-              <section className="bg-gray-50 pt-20 min-h-screen text-[#001837]">
+              <section className="bg-gray-50 pt-14 min-h-screen text-[#001837]">
                 <CustomizePage />
               </section>
               

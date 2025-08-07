@@ -17,7 +17,7 @@ export default function Header() {
         scrolled ? 'bg-white shadow text-[#001837]' : 'bg-[#001837] text-white'
       }`}
     >
-      <div className="max-w-[1080px] mx-auto px-6 py-[1rem] flex justify-between items-center">
+      <div className="max-w-[1080px] mx-auto px-6 py-[0.7rem] flex justify-between items-center">
         <img
           src="/BitlyLogo.svg"
           alt="Bitly logo"

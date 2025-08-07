@@ -11,11 +11,9 @@ export default function ShortenerForm({
   handleCopy,
 }) {
   return (
-    
-
         <form
           onSubmit={onSubmit}
-          className="bg-white p-8 rounded-[3rem] shadow-xl text-left max-w-4xl mx-auto w-full text-[#001837]"
+          className="bg-white p-8 rounded-[2rem] shadow-xl text-left max-w-4xl mx-auto w-full text-[#001837]"
         >
           <h3 className="text-2xl font-bold mb-2">Shorten a long link</h3>
           <p className="text-sm text-gray-600 mb-4">No credit card required. duh</p>

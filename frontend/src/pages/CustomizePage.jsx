@@ -9,14 +9,14 @@ export default function CustomizePage() {
   const url = location.state?.url || "https://google.com";
 
   return (
-    <div className="min-h-screen bg-[#001837] text-white font-sans overflow-hidden mt-[-0.3rem]">
+    <div className="min-h-screen bg-[#001837] text-white font-sans overflow-hidden ">
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
+        <div className="absolute top-40 left-10 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="relative z-10 p-4 sm:p-6 lg:p-10">
-        <header className="max-w-8xl ml-[0.5rem] mx-auto mb-8 flex items-center justify-between">
+      <div className="relative z-0 p-4 sm:p-6 lg:p-10">
+        <header className="max-w-8xl mx-auto px-24 mb-8 flex items-center justify-between">
           <h1 className="text-3xl sm:text-4xl font-bold text-white flex items-center gap-3">
             Customize Your QR Code
           </h1>

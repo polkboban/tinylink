@@ -54,10 +54,10 @@ export default function QRCodeCard() {
 
   return (
     
-      <div className="bg-white p-6 md:p-10 rounded-[2rem] shadow-xl max-w-5xl w-full flex flex-col md:flex-row gap-10 text-[#001837] relative">
-        <div className="md:w-1/2">
+      <div className="bg-white p-6 md:p-7 rounded-[2rem] shadow-xl max-w-5xl w-full flex flex-col md:flex-row gap-10 text-[#001837] relative">
+        <div className="md:w-1/2 flex justify-center items-start flex-col">
           <h3 className="text-3xl font-extrabold mb-2">Create a QR Code</h3>
-          <p className="text-sm text-gray-500 mb-4">No credit card required.</p>
+          <p className="text-sm text-gray-500 mb-4">No credit card required. duh</p>
 
           <label htmlFor="qr-url" className="block font-bold mb-2 mt-9 text-lg">
             Enter your QR Code destination
@@ -78,7 +78,7 @@ export default function QRCodeCard() {
           <form onSubmit={handleGenerate}>
             <button
               type="submit"
-              className="w-full md:w-[18rem] bg-[#001837] hover:bg-[#20293a] text-white py-3 rounded-[1.3rem] font-bold transition flex items-center justify-center gap-2"
+              className="w-full md:w-[18rem] bg-blue-600 hover:bg-[#20293a] text-white py-3 rounded-[1.3rem] font-bold transition flex items-center justify-center gap-2"
             >
               Get your QR Code for free <ArrowRight />
             </button>
@@ -87,19 +87,19 @@ export default function QRCodeCard() {
 
         <div className="md:w-1/2 flex items-center justify-center relative min-h-[300px]">
           {showQR ? (
-            <div className="flex flex-col items-center gap-6">
-              <div ref={qrRef} className="p-2 border rounded-3xl shadow-lg border-gray-200"></div>
+            <div className="flex flex-col items-center gap-4">
+              <div ref={qrRef} className="p-1 border rounded-3xl shadow-lg border-gray-200"></div>
               <button
                 type="button"
                 onClick={() => navigate("/customize", { state: { url } })}
-                className="w-full md:w-[18rem] bg-blue-600 text-white py-3 rounded-[1.3rem] font-bold hover:bg-blue-700 transition"
+                className="w-full md:w-[17rem] bg-blue-600 text-white py-3 rounded-[1.3rem] font-bold hover:bg-blue-700 transition"
               >
                 Customize your QR Code
               </button>
               <button
                 onClick={handleDownloadQR}
                 type="button"
-                className="text-sm text-blue-600 hover:underline"
+                className="text-sm text-blue-600 hover:underline flex items-center gap-2"
               >
                 Download QR Code
               </button>

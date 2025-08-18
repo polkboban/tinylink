@@ -87,8 +87,8 @@ export default function QRCodeCard() {
 
         <div className="md:w-1/2 flex items-center justify-center relative min-h-[300px]">
           {showQR ? (
-            <div className="flex flex-col items-center gap-4">
-              <div ref={qrRef} className="p-1 border rounded-3xl shadow-lg border-gray-200"></div>
+            <div className="flex flex-col items-center gap-4 p-2">
+              <div ref={qrRef} className="p-2 border rounded-[1.2rem] shadow-lg border-gray-200"></div>
               <button
                 type="button"
                 onClick={() => navigate("/customize", { state: { url } })}
@@ -96,12 +96,10 @@ export default function QRCodeCard() {
               >
                 Customize your QR Code
               </button>
-              <button
-                onClick={handleDownloadQR}
-                type="button"
-                className="text-sm text-blue-600 hover:underline flex items-center gap-2"
-              >
-                Download QR Code
+              <button className="group rounded-lg mt-[-0.5rem] px-5 py-1 font-semibold transition-colors duration-300">
+                <span className="bg-left-bottom bg-gradient-to-r from-blue-500 to-blue-500 bg-[length:0%_2px] bg-no-repeat transition-all duration-500 ease-out group-hover:bg-[length:100%_2px]">
+                  Download QR Code
+                </span>
               </button>
             </div>
           ) : (

@@ -1,16 +1,41 @@
-
+import React from "react";
+import { Instagram, FacebookIcon, LinkedinIcon } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#001837] text-white text-center py-10 mt-[10px] text-sm relative z-10">
-      <p className="mb-2 font-semibold">
-        Sign up for free. Your free plan includes:
-      </p>
-      <p>
-        <img src="/tick.svg" alt="Checkmark" className="inline-block mr-1" /> 5 short links/month &nbsp;&nbsp;
-        <img src="/tick.svg" alt="Checkmark" className="inline-block mr-1" /> 3 custom back-halves/month &nbsp;&nbsp;
-        <img src="/tick.svg" alt="Checkmark" className="inline-block mr-1" /> Unlimited link clicks
-      </p>
+    <footer className="w-full bg-[#06263a] text-white py-6 px-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <img src="/BitlyLogo.svg" alt="Bitly Logo" className="h-8" />
+
+        <p className="text-xs text-gray-200 text-center md:text-left">
+          © 2025 Bitly | Handmade in New York City, Denver, Berlin, and all over
+          the world.
+        </p>
+
+        <div className="flex items-center gap-5">
+          <a
+            href="#"
+            className="text-white hover:text-gray-300 transition"
+            aria-label="Instagram"
+          >
+            <Instagram size={20} />
+          </a>
+          <a
+            href="#"
+            className="text-white hover:text-gray-300 transition"
+            aria-label="Facebook"
+          >
+            <FacebookIcon size={20} />
+          </a>
+          <a
+            href="#"
+            className="text-white hover:text-gray-300 transition"
+            aria-label="LinkedIn"
+          >
+            <LinkedinIcon size={20} />
+          </a>
+        </div>
+      </div>
     </footer>
   );
 }

@@ -25,10 +25,30 @@ export default function Header() {
         />
 
         <nav className="hidden lg:flex items-center gap-7 text-[18px] font-medium">
-          <a href="#" className="hover:underline font-semibold">Platform <ChevronDown className="inline " /></a>
-          <a href="#" className="hover:underline font-semibold">Solutions <ChevronDown className="inline" /></a>
-          <a href="#" className="hover:underline font-semibold">Pricing <ChevronDown className="inline" /></a>
-          <a href="#" className="hover:underline font-semibold">Resources <ChevronDown className="inline" /></a>
+          <a href="#" className="group relative font-semibold">
+            <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat transition-all duration-500 ease-out group-hover:bg-[length:100%_2px]">
+              Platform
+            </span>
+            <ChevronDown className="inline" />
+          </a>
+          <a href="#" className="group relative font-semibold">
+            <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat transition-all duration-500 ease-out group-hover:bg-[length:100%_2px]">
+              Solutions
+            </span>
+            <ChevronDown className="inline" />
+          </a>
+          <a href="#" className="group relative font-semibold">
+            <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat transition-all duration-500 ease-out group-hover:bg-[length:100%_2px]">
+              Pricing
+            </span>
+            <ChevronDown className="inline" />
+          </a>
+          <a href="#" className="group relative font-semibold">
+            <span className="bg-left-bottom bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-no-repeat transition-all duration-500 ease-out group-hover:bg-[length:100%_2px]">
+              Resources
+            </span>
+            <ChevronDown className="inline" />
+          </a>
 
           <button className={`px-4 py-1 border-2 rounded-[0.9rem] ml-7 ${
             scrolled ? 'border-[#001837] text-[#001837]' : 'border-white text-white'

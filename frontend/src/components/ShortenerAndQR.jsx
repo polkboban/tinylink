@@ -3,7 +3,7 @@ import ShortenerForm from "./ShortenerForm";
 import QRCodeCard from "./QRCodeCard";
 
 export default function ShortenerAndQR() {
-  const [mode, setMode] = useState("shorten"); // or 'qr'
+  const [mode, setMode] = useState("shorten"); 
   const [url, setUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
   const [loading, setLoading] = useState(false);
@@ -35,7 +35,7 @@ export default function ShortenerAndQR() {
         throw new Error(data?.error || "Something went wrong");
       }
 
-      setShortUrl(data.data.shortUrl); // ✅ correct!
+      setShortUrl(data.data.shortUrl); 
     } catch (err) {
       console.error("Shortening failed:", err);
       setError(err.message);
@@ -92,7 +92,6 @@ export default function ShortenerAndQR() {
           </button>
         </div>
 
-        {/* Conditional Card */}
         {mode === "shorten" ? (
           <ShortenerForm
             url={url}

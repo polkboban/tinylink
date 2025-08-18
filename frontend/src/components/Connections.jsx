@@ -72,12 +72,12 @@ export default function BitlyConnectionsSection() {
             {/* Content */}
             <div className="h-[40%] bg-white p-6 flex flex-col">
               <div className="flex items-center gap-2 mb-3">
-                <img src={tile.icon} alt="icon" className="h-7 w-7" />
-                <h3 className="text-lg font-semibold text-[#06263a]">
+                <img src={tile.icon} alt="icon" className="h-10 w-10" />
+                <h3 className="text-2xl font-bold text-[#06263a]">
                   {tile.title}
                 </h3>
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-md text-gray-600 leading-relaxed">
                 {tile.description}
               </p>
             </div>

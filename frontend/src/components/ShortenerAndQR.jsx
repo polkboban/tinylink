@@ -66,7 +66,6 @@ export default function ShortenerAndQR() {
           Use our URL shortener, QR Codes, and landing pages to engage your audience and connect them to the right information.
         </p>
 
-        {/* Toggle Tabs */}
         <div className="flex justify-center gap-4 mb-10">
           <button
             onClick={() => setMode("shorten")}

@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowRight } from "lucide-react";
 
 export default function BitlyConnectionsSection() {
   const tiles = [
@@ -30,7 +31,6 @@ export default function BitlyConnectionsSection() {
 
   return (
     <div className="min-h-screen bg-[#f6f0ea] flex flex-col items-center py-16 px-6">
-      {/* Header */}
       <div className="max-w-4xl text-center mb-12">
         <p className="text-sm tracking-widest text-gray-500 mb-2">
           GREAT CONNECTIONS START WITH A CLICK OR SCAN
@@ -45,10 +45,10 @@ export default function BitlyConnectionsSection() {
         </p>
         <div className="flex justify-center gap-4">
           <button className="px-6 py-3 bg-[#0d66e6] text-white rounded-full shadow hover:shadow-lg transform hover:-translate-y-0.5 transition">
-            Get started for free →
+            Get started for free < ArrowRight className="inline ml-2" />
           </button>
           <button className="px-6 py-3 border-2 border-[#0d66e6] text-[#0d66e6] rounded-full hover:bg-white/60 transition">
-            Get a quote →
+            Get a quote < ArrowRight className="inline ml-2" />
           </button>
         </div>
       </div>

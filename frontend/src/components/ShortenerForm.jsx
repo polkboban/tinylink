@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { forwardRef } from 'react';
 
 export default function ShortenerForm({
   url,
@@ -15,18 +16,18 @@ export default function ShortenerForm({
           onSubmit={onSubmit}
           className="bg-white p-8 rounded-[2rem] shadow-xl text-left max-w-4xl mx-auto w-full text-[#001837]"
         >
-          <h3 className="text-2xl font-bold mb-2">Shorten a long link</h3>
+          <h3 className="text-3xl font-extrabold mb-2 mt-2">Shorten a long link</h3>
           <p className="text-sm text-gray-600 mb-4">No credit card required. duh</p>
 
-          <label htmlFor="url" className="block font-semibold mb-2 mt-9 text-[1.125rem]">
+          <label htmlFor="url" className="block font-bold mb-2 mt-[3.8rem] text-lg">
             Paste your long link here
           </label>
           <input
             id="url"
             type="url"
             required
-            placeholder="https://example.com/my/long/url"
-            className="border border-gray-300 mb-7 rounded-lg px-4 py-2 w-full mb-4 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            placeholder="https://example.com/your/big/ass/url"
+            className="border border-gray-300 mb-7 rounded-2xl px-4 py-3 w-full mb-4 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
           />

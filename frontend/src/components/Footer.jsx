@@ -36,6 +36,11 @@ export default function Footer() {
           </a>
         </div>
       </div>
+      <div className="text-center text-gray-400 text-sm mt-4">
+        <a href="https://github.com/polkboban" target="_blank" rel="noopener noreferrer">
+          github.com/polkboban
+        </a>
+      </div>
     </footer>
   );
 }

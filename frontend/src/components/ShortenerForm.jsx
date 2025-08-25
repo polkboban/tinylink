@@ -1,5 +1,4 @@
 import { ArrowRight } from 'lucide-react';
-import { forwardRef } from 'react';
 
 export default function ShortenerForm({
   url,

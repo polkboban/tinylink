@@ -8,8 +8,8 @@ export default function Footer() {
         <img src="/BitlyLogo.svg" alt="Bitly Logo" className="h-8" />
 
         <p className="text-xs text-gray-200 text-center md:text-left">
-          © 2025 Bitly | Handmade in New York City, Denver, Berlin, and all over
-          the world.
+          © 2025 Bitly | Handmade in New York, Denver, Berlin, and all over
+          the world. Nah I'm kidding.
         </p>
 
         <div className="flex items-center gap-5">

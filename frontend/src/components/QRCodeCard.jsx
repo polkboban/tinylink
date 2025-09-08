@@ -66,7 +66,7 @@ export default function QRCodeCard() {
             id="qr-url"
             type="url"
             required
-            placeholder="https://example.com/my/long-url"
+            placeholder="https://example.com/my/long/url"
             className="border border-gray-300 rounded-2xl px-4 py-3 w-full mb-7 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
             value={url}
             onChange={(e) => {

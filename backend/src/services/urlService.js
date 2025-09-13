@@ -11,7 +11,6 @@ import { validateUrl } from '../utils/urlValidator.js';
  */
 export async function createShortUrl(originalUrl, customAlias = null, expiresAt = null) {
   try {
-    // Validate the original URL
     const urlValidation = validateUrl(originalUrl);
     if (!urlValidation.isValid) {
       return {
@@ -23,7 +22,6 @@ export async function createShortUrl(originalUrl, customAlias = null, expiresAt 
     let shortCode;
     let isCustom = false;
 
-    // Handle custom alias
     if (customAlias) {
       if (!isValidShortCode(customAlias)) {
         return {
@@ -39,7 +37,6 @@ export async function createShortUrl(originalUrl, customAlias = null, expiresAt 
         };
       }
 
-      // Check if custom alias already exists
       const { data: existing } = await supabase
         .from('urls')
         .select('id')
@@ -57,7 +54,6 @@ export async function createShortUrl(originalUrl, customAlias = null, expiresAt 
       shortCode = customAlias;
       isCustom = true;
     } else {
-      // Generate a unique short code
       let attempts = 0;
       const maxAttempts = 10;
 
@@ -82,7 +78,6 @@ export async function createShortUrl(originalUrl, customAlias = null, expiresAt 
       }
     }
 
-    // Insert into database
     const { data, error } = await supabase
       .from('urls')
       .insert({
@@ -131,7 +126,6 @@ export async function createShortUrl(originalUrl, customAlias = null, expiresAt 
  */
 export async function getOriginalUrl(shortCode) {
   try {
-    // Get the URL record
     const { data, error } = await supabase
       .from('urls')
       .select('*')
@@ -146,7 +140,6 @@ export async function getOriginalUrl(shortCode) {
       };
     }
 
-    // Check if URL has expired
     if (data.expires_at && new Date(data.expires_at) < new Date()) {
       return {
         success: false,
@@ -154,7 +147,6 @@ export async function getOriginalUrl(shortCode) {
       };
     }
 
-    // Increment click count (fire and forget)
     supabase
       .from('urls')
       .update({ click_count: data.click_count + 1 })

@@ -9,7 +9,7 @@ export default function ShortenerAndQR() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
-  const [analytics, setAnalytics] = useState(null); // ✅ added
+  const [analytics, setAnalytics] = useState(null); 
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -111,7 +111,7 @@ export default function ShortenerAndQR() {
             error={error}
             copied={copied}
             handleCopy={handleCopy}
-            analytics={analytics} // ✅ works now
+            analytics={analytics} 
           />
         ) : (
           <QRCodeCard url={url} setUrl={setUrl} />

@@ -10,7 +10,6 @@ export function validateUrl(url) {
     return { isValid: false, error: 'URL is required and must be a string' };
   }
 
-  // Check if URL is properly formatted
   if (!validator.isURL(url, {
     protocols: ['http', 'https'],
     require_protocol: true,
@@ -20,7 +19,6 @@ export function validateUrl(url) {
     return { isValid: false, error: 'Invalid URL format. Must include http:// or https://' };
   }
   
-  // Only block dangerous file extensions
   const maliciousPatterns = [
     /\.(exe|bat|cmd|scr|pif)$/i
   ];
@@ -31,7 +29,6 @@ export function validateUrl(url) {
     }
   }
   
-  // Check URL length
   if (url.length > 2048) {
     return { isValid: false, error: 'URL is too long (maximum 2048 characters)' };
   }

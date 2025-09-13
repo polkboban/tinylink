@@ -10,7 +10,7 @@ export default function ShortenerForm({
   error,
   copied,
   handleCopy,
-  analytics, // pass analytics data from parent
+  analytics, 
 }) {
   const [showAnalytics, setShowAnalytics] = useState(false);
 
@@ -94,7 +94,7 @@ export default function ShortenerForm({
         )}
       </form>
 
-      {/* Analytics Modal */}
+
       {showAnalytics && analytics && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-2xl shadow-xl w-[90%] max-w-md relative">

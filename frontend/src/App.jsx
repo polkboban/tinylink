@@ -13,6 +13,7 @@ function App() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [analytics, setAnalytics] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,12 +33,19 @@ function App() {
 
       if (data.success) {
         setShortUrl(data.data.shortUrl);
+        setAnalytics({
+          shortCode: data.data.shortCode,
+          originalUrl: data.data.originalUrl,
+          createdAt: data.data.createdAt,
+          expiresAt: data.data.expiresAt,
+          clickCount: data.data.clickCount,
+        });
       } else {
-        setError(data.error || 'Failed to shorten URL');
+        setError(data.error || 'server error');
       }
     } catch (err) {
-      console.error('Network error:', err);
-      setError('Network error. Please check your connection or the server.');
+      console.error('network error:', err);
+      setError('network error. please check your connection or the server.');
     } finally {
       setLoading(false);
     }
@@ -68,6 +76,7 @@ function App() {
                   error={error}
                   copied={copied}
                   handleCopy={handleCopy}
+                  analytics={analytics} // pass analytics data to ShortenerAndQR
                 />
               </section>
 

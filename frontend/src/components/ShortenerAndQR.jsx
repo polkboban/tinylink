@@ -9,6 +9,7 @@ export default function ShortenerAndQR() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+  const [analytics, setAnalytics] = useState(null); // ✅ added
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +36,17 @@ export default function ShortenerAndQR() {
         throw new Error(data?.error || "Something went wrong");
       }
 
-      setShortUrl(data.data.shortUrl); 
+      setShortUrl(data.data.shortUrl);
+
+      // ✅ Save analytics data for popup
+      setAnalytics({
+        shortCode: data.data.shortCode,
+        originalUrl: data.data.originalUrl,
+        createdAt: data.data.createdAt,
+        expiresAt: data.data.expiresAt,
+        clickCount: data.data.clickCount,
+      });
+
     } catch (err) {
       console.error("Shortening failed:", err);
       setError(err.message);
@@ -43,7 +54,6 @@ export default function ShortenerAndQR() {
       setLoading(false);
     } 
   };
-
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shortUrl);
@@ -101,6 +111,7 @@ export default function ShortenerAndQR() {
             error={error}
             copied={copied}
             handleCopy={handleCopy}
+            analytics={analytics} // ✅ works now
           />
         ) : (
           <QRCodeCard url={url} setUrl={setUrl} />

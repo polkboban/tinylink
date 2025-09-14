@@ -9,10 +9,9 @@ const supabaseKey = process.env.SUPABASE_ANON_KEY;
 let supabase;
 
 if (!supabaseUrl || !supabaseKey || supabaseUrl === 'https://your-project.supabase.co' || supabaseKey === 'your-anon-key-here') {
-  console.warn('⚠️  Supabase not configured. Please click "Connect to Supabase" in the top right to set up your database.');
+  console.warn('  Supabase not configured. Please click "Connect to Supabase" in the top right to set up your database.');
   console.warn('   The API will start but database operations will fail until configured.');
   
-  // Create a mock client that will show helpful errors
   supabase = {
     from: () => ({
       select: () => Promise.resolve({ data: null, error: { message: 'Supabase not configured' } }),

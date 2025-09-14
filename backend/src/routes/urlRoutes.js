@@ -4,10 +4,7 @@ import { createUrlLimiter, redirectLimiter } from '../middleware/rateLimiter.js'
 
 const router = express.Router();
 
-/**
- * POST /api/shorten
- * Create a new short URL
- */
+
 router.post('/shorten', createUrlLimiter, async (req, res) => {
   try {
     const { url, customAlias, expiresIn } = req.body;
@@ -19,17 +16,13 @@ router.post('/shorten', createUrlLimiter, async (req, res) => {
       });
     }
 
-    // Calculate expiration date if expiresIn is provided
     let expiresAt = null;
     if (expiresIn) {
       const now = new Date();
       
-      // Handle different time formats
       if (typeof expiresIn === 'number') {
-        // Assume milliseconds
         expiresAt = new Date(now.getTime() + expiresIn);
       } else if (typeof expiresIn === 'string') {
-        // Parse string formats like "7d", "1h", "30m"
         const match = expiresIn.match(/^(\d+)([dhm])$/);
         if (match) {
           const [, amount, unit] = match;
@@ -60,10 +53,7 @@ router.post('/shorten', createUrlLimiter, async (req, res) => {
   }
 });
 
-/**
- * GET /api/stats/:shortCode
- * Get statistics for a short URL
- */
+
 router.get('/stats/:shortCode', async (req, res) => {
   try {
     const { shortCode } = req.params;

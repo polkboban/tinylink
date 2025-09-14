@@ -4,10 +4,6 @@ import { redirectLimiter } from '../middleware/rateLimiter.js';
 
 const router = express.Router();
 
-/**
- * GET /:shortCode
- * Redirect to original URL
- */
 router.get('/:shortCode', redirectLimiter, async (req, res) => {
   try {
     const { shortCode } = req.params;
@@ -21,7 +17,6 @@ router.get('/:shortCode', redirectLimiter, async (req, res) => {
       });
     }
 
-    // Redirect to the original URL
     res.redirect(301, result.data.originalUrl);
 
   } catch (error) {

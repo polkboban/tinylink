@@ -5,7 +5,7 @@ export default function AnalyticsCard({ analytics }) {
 
   return (
     <div className="mt-6 p-6 bg-white shadow-lg rounded-2xl border border-gray-200 max-w-xl mx-auto">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4">🔎 Link Analytics</h2>
+      <h2 className="text-xl font-semibold text-gray-800 mb-4">Link Analytics</h2>
 
       <div className="space-y-3">
         <div>

@@ -38,7 +38,6 @@ export default function ShortenerAndQR() {
 
       setShortUrl(data.data.shortUrl);
 
-      // ✅ Save analytics data for popup
       setAnalytics({
         shortCode: data.data.shortCode,
         originalUrl: data.data.originalUrl,

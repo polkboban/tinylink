@@ -96,7 +96,7 @@ export default function ShortenerForm({
 
 
       {showAnalytics && analytics && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 backdrop-blur-sm">
           <div className="bg-white p-6 rounded-2xl shadow-xl w-[90%] max-w-md relative">
             <button
               onClick={() => setShowAnalytics(false)}
@@ -104,7 +104,7 @@ export default function ShortenerForm({
             >
               <X size={20} />
             </button>
-            <h2 className="text-lg font-semibold mb-4">🔎 Link Analytics</h2>
+            <h2 className="text-lg font-semibold mb-4 text-gray-800">Your Link Analytics</h2>
             <div className="space-y-3 text-sm text-gray-800">
               <div>
                 <span className="font-medium">Short URL:</span>{" "}

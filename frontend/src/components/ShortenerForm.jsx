@@ -36,7 +36,7 @@ export default function ShortenerForm({
           type="url"
           required
           placeholder="https://example.com/your/big/ass/url"
-          className="border border-gray-300 mb-7 rounded-2xl px-4 py-3 w-full mb-4 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          className="border border-gray-300 mb-7 rounded-2xl px-4 py-3 w-full text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />

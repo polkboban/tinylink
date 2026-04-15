@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.6",
+    "@supabase/supabase-js": "^2.103.0",
     "gsap": "^3.13.0",
     "lucide-react": "^0.536.0",
     "qr-code-styling": "^1.9.2",
@@ -18,7 +19,7 @@
     "qrcode.react": "^4.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.7.1",
+    "react-router-dom": "^7.14.0",
     "smooth-corners": "^1.0.8"
   },
   "devDependencies": {

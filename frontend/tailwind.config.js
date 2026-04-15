@@ -1,14 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
-    "./index.html", // Important for Vite projects
-    "./src/**/*.{js,jsx,ts,tsx}", // This tells Tailwind to scan all JS/JSX/TS/TSX files in 'src'
+    "./index.html", 
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
       fontSize: {
-        'hero': '2.75rem', // 44px
-        'tight': '1.125rem', // 18px
+        'hero': '2.75rem', 
+        'tight': '1.125rem', 
       },
       transitionProperty: {
         'spacing': 'margin, padding',

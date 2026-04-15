@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { ArrowRight, BarChart2, X } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
 
 export default function ShortenerForm({
   url,
   setUrl,
-  onSubmit,
+  onSubmit, // Kept in props just in case you use it later, but bypassed below
   loading,
   shortUrl,
   error,
@@ -13,11 +14,18 @@ export default function ShortenerForm({
   analytics, 
 }) {
   const [showAnalytics, setShowAnalytics] = useState(false);
+  const navigate = useNavigate(); // 2. Initialize the hook
+
+  // 3. Create the intercept handler
+  const handleShorten = (e) => {
+    e.preventDefault(); // Prevent default form submission
+    navigate('/login'); // Redirect to login page immediately
+  };
 
   return (
     <>
       <form
-        onSubmit={onSubmit}
+        onSubmit={handleShorten} // 4. Replace the prop onSubmit with our new handler
         className="bg-white p-8 rounded-[2rem] shadow-xl text-left max-w-4xl mx-auto w-full text-[#001837]"
       >
         <h3 className="text-3xl font-extrabold mb-2 mt-2">Shorten a long link</h3>

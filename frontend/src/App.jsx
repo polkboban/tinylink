@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import ShortenerAndQR from './components/ShortenerAndQR';
 import BitlyConnectionsSection from './components/Connections';
 import CustomizePage from './pages/CustomizePage'; 
+import LoginPage from './pages/LoginPage'; 
+import DashboardPage from './pages/DashboardPage';
 
 function App() {
   const [url, setUrl] = useState('');
@@ -59,13 +61,13 @@ function App() {
 
   return (
     <div className="font-sans text-white">
-      <Header />
-
+      
       <Routes>
         <Route
           path="/"
           element={
             <>
+              <Header /> 
               <section className="bg-[#001837] pt-20">
                 <ShortenerAndQR
                   url={url}
@@ -76,7 +78,7 @@ function App() {
                   error={error}
                   copied={copied}
                   handleCopy={handleCopy}
-                  analytics={analytics} // pass analytics data to ShortenerAndQR
+                  analytics={analytics} 
                 />
               </section>
 
@@ -93,13 +95,15 @@ function App() {
           path="/customize"
           element={
             <>
+              <Header /> 
               <section className="bg-gray-50 pt-14 min-h-screen text-[#001837]">
                 <CustomizePage />
               </section>
-              
             </>
           }
         />
+
+        <Route path="/app" element={<DashboardPage />} />
       </Routes>
     </div>
   );

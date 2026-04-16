@@ -13,6 +13,7 @@
     "@fontsource/inter": "^5.2.6",
     "@supabase/supabase-js": "^2.103.0",
     "gsap": "^3.13.0",
+    "html-to-image": "^1.11.13",
     "lucide-react": "^0.536.0",
     "qr-code-styling": "^1.9.2",
     "qr-code-styling-new": "^1.6.1",

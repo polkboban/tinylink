@@ -1,5 +1,5 @@
 import express from 'express';
-import { createShortUrl, getOriginalUrl, getUrlStats } from '../services/urlService.js';
+import { createShortUrl, getOriginalUrl, getUrlStats, getUserUrls } from '../services/urlService.js';
 import { createUrlLimiter, redirectLimiter } from '../middleware/rateLimiter.js';
 
 const router = express.Router();

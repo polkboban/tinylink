@@ -9,7 +9,7 @@ import { validateUrl } from '../utils/urlValidator.js';
  * @param {Date} expiresAt - Optional expiration date
  * @returns {object} - Result with success status and data
  */
-export async function createShortUrl(originalUrl, customAlias = null, expiresAt = null) {
+export async function createShortUrl(originalUrl, customAlias = null, expiresAt = null, userId = null) {
   try {
     const urlValidation = validateUrl(originalUrl);
     if (!urlValidation.isValid) {

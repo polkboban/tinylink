@@ -6,7 +6,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Exact scroll threshold for the background and text color transition
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -22,7 +21,7 @@ export default function Header() {
 
   const NavItem = ({ text, hasDropdown }) => (
     <button 
-      className={`flex items-center gap-[4px] text-[16px] font-[800] leading-[24px] tracking-tight transition-colors ${
+      className={`flex items-center ml-[1.2rem] gap-[0.2rem] text-[1.1rem] font-[500] leading-[24px] tracking-tight transition-colors ${
         isScrolled 
           ? 'text-[#2A2E30] hover:text-[#0057FF]' 
           : 'text-white hover:text-gray-200'
@@ -55,7 +54,7 @@ export default function Header() {
               />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-[32px]">
+            <nav className="hidden lg:flex items-center gap-[22px]">
               <NavItem text="Products" hasDropdown={true} />
               <NavItem text="Solutions" hasDropdown={true} />
               <NavItem text="Pricing" hasDropdown={false} />
@@ -66,7 +65,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-[24px]">
             <Link 
               to="/login" 
-              className={`text-[16px] font-[800] tracking-tight transition-colors ${
+              className={`text-[16px] font-[500] tracking-tight transition-colors ${
                 isScrolled 
                   ? 'text-[#2A2E30] hover:text-[#0057FF]' 
                   : 'text-white hover:text-gray-200'
@@ -92,7 +91,7 @@ export default function Header() {
                 className={`flex items-center justify-center rounded-[8px] border-[2px] px-[8px] py-[4px] text-[17px] font-[600] transition-all ${
                   isScrolled
                     ? 'border-[#0057FF] bg-[#0057FF] text-white hover:border-[#004BD6] hover:bg-[#004BD6]'
-                    : 'border-white bg-white text-[#0057FF] hover:bg-gray-100 hover:border-gray-100 text-[#000000]'
+                    : 'border-white bg-white text-gray-800 hover:bg-gray-100 hover:border-gray-100 text-[#000000]'
                 }`}
               >
                 Sign up Free

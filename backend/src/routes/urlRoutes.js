@@ -4,16 +4,25 @@ import { createUrlLimiter, redirectLimiter } from '../middleware/rateLimiter.js'
 
 const router = express.Router();
 
-
+router.get('/user/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const result = await getUserUrls(userId);
+    
+    if (!result.success) return res.status(400).json(result);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
 router.post('/shorten', createUrlLimiter, async (req, res) => {
   try {
     const { url, customAlias, expiresIn } = req.body;
 
+    const userId = req.user?.id || null; 
+
     if (!url) {
-      return res.status(400).json({
-        success: false,
-        error: 'URL is required'
-      });
+      return res.status(400).json({ success: false, error: 'URL is required' });
     }
 
     let expiresAt = null;
@@ -36,7 +45,7 @@ router.post('/shorten', createUrlLimiter, async (req, res) => {
       }
     }
 
-    const result = await createShortUrl(url, customAlias, expiresAt);
+    const result = await createShortUrl(url, customAlias, expiresAt, userId);
 
     if (!result.success) {
       return res.status(400).json(result);

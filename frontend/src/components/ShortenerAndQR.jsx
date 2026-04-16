@@ -65,7 +65,7 @@ export default function ShortenerAndQR() {
       <img
         src="/stars.svg"
         alt="Background stars"
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[100%] max-w-none pointer-events-none select-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] max-w-none pointer-events-none select-none"
       />
       <div className="max-w-4xl mx-auto text-center text-white">
         <h2 className="text-5xl font-extrabold leading-tight mb-4">

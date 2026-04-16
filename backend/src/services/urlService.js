@@ -84,7 +84,8 @@ export async function createShortUrl(originalUrl, customAlias = null, expiresAt 
         short_code: shortCode,
         original_url: originalUrl,
         custom_alias: isCustom,
-        expires_at: expiresAt
+        expires_at: expiresAt,
+        user_id: userId 
       })
       .select()
       .single();
@@ -116,6 +117,23 @@ export async function createShortUrl(originalUrl, customAlias = null, expiresAt 
       success: false,
       error: 'Internal server error'
     };
+  }
+}
+
+export async function getUserUrls(userId) {
+  try {
+    const { data, error } = await supabase
+      .from('urls')
+      .select('*')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false }); // Newest first
+
+    if (error) throw error;
+
+    return { success: true, data };
+  } catch (error) {
+    console.error('Service error:', error);
+    return { success: false, error: 'Failed to fetch URLs' };
   }
 }
 

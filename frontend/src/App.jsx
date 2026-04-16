@@ -102,7 +102,8 @@ function App() {
             </>
           }
         />
-
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<LoginPage />} />
         <Route path="/app" element={<DashboardPage />} />
       </Routes>
     </div>

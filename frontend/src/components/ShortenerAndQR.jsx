@@ -65,14 +65,14 @@ export default function ShortenerAndQR() {
       <img
         src="/stars.svg"
         alt="Background stars"
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] max-w-none pointer-events-none select-none"
+        className="absolute top-0 left-1/2 h-[40%] -translate-x-1/2 w-[60%] max-w-none pointer-events-none select-none"
       />
-      <div className="max-w-4xl mx-auto text-center text-white">
+      <div className="max-w-7xl mx-auto text-center text-white">
         <h2 className="text-5xl font-extrabold leading-tight mb-4">
           Build stronger digital connections
         </h2>
-        <p className="text-lg font-medium mb-10 max-w-2xl mx-auto">
-          Use our URL shortener, QR Codes, and landing pages to engage your audience and connect them to the right information.
+        <p className="text-2xl font-[400] mb-10 max-w-[90ch] mx-auto">
+          Use our URL shortener, QR Codes, and landing pages to engage your audience and connect them to the right information. Build, edit, and track everything inside the Bitly Connections Platform.
         </p>
 
         <div className="flex justify-center gap-4 mb-10">

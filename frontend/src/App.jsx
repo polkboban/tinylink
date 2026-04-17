@@ -8,6 +8,7 @@ import BitlyConnectionsSection from './components/Connections';
 import CustomizePage from './pages/CustomizePage'; 
 import LoginPage from './pages/LoginPage'; 
 import DashboardPage from './pages/DashboardPage';
+import FreePlanBanner from './components/FreePlanBanner';
 
 function App() {
   const [url, setUrl] = useState('');
@@ -81,8 +82,11 @@ function App() {
                   analytics={analytics} 
                 />
               </section>
+              <div className='mt-[-1.5rem] pb-10 z-10 relative'>
+                <FreePlanBanner />
+              </div>
 
-              <div className="w-full bg-[#faf9f7] text-[#001837]">
+              <div className="w-full bg-[#faf9f7] text-[#001837] ">
                 <BitlyConnectionsSection />
               </div>
 
